@@ -71,4 +71,13 @@ class Group extends Model
             'updated_at' => $this->updated_at,
         ];
     }
+
+    public static function updateGroupWithConversation($groupId, $message): Group
+    {
+        /** Create or update a group with received group id and message  */
+        return self::updateOrCreate(
+            ['id' => $groupId], // search condition
+            ['last_message_id' => $message->id] // Value to update
+        );
+    }
 }
