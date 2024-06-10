@@ -40,9 +40,10 @@ class Conversation extends Model
     {
         $allUsers = User::getUsersExceptAuthUser($user);
         $allGroups = Group::getGroupsExceptAuthUser($user);
+
         return $allUsers->map(function (User $user) {
             return $user->toConversationArray();
-        })->concat((array)$allGroups->map(function (Group $group) {
+        })->concat($allGroups->map(function (Group $group) {
             return $group->toConversationArray();
         }));
     }

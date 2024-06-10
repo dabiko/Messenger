@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Dabiko Blaise',
-            'email' => 'dabiko.blaise@gmail.com',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('password'),
             'is_admin' => true,
         ]);
@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('password'),
         ]);
 
-         User::factory(15)->create();
+         User::factory(10)->create();
 
          for ($i = 0; $i < 5; $i++) {
              $group = Group::factory()->create([
@@ -51,12 +51,12 @@ class DatabaseSeeder extends Seeder
                  ->sort()->implode('_');
          })->map(function ($groupedMessages) {
              return [
-                 // 'user_id1' => $groupedMessages[0]->sender_id,
-                  'user_id1' => $groupedMessages->first()->sender_id,
-                 // 'user_id2' => $groupedMessages[0]->receiver_id,
-                 'user_id2' => $groupedMessages->first()->receiver_id,
-                 // 'last_message_id' => $groupedMessages[count($groupedMessages)-1]->id,
-                 'last_message_id' => $groupedMessages->last()->id,
+                  'user_id1' => $groupedMessages[0]->sender_id,
+                  //'user_id1' => $groupedMessages->first()->sender_id,
+                  'user_id2' => $groupedMessages[0]->receiver_id,
+                 //'user_id2' => $groupedMessages->first()->receiver_id,
+                  'last_message_id' => $groupedMessages[count($groupedMessages)-1]->id,
+                 //'last_message_id' => $groupedMessages->last()->id,
                  'created_at' => new Carbon(),
                  'updated_at' => new Carbon(),
              ];

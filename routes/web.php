@@ -12,7 +12,7 @@ Route::middleware(['auth', 'verified'])->group(function (){
 
     })->name('chat.user');
 
-    Route::get('/group/{group}', function (){
+    Route::get('/group/`{group}`', function (){
 
     })->name('chat.group');
 });
