@@ -14,7 +14,7 @@ const ConversationHeader = ({ selectedConversation }) => {
                     <div className={"flex items-center gap-3"}>
                         <Link
                             href={route("dashboard")}
-                            className={"inline-block sm:hidden"}>
+                            className={"inline-block sm:hidden"}
                         >
                             <ArrowLeftIcon className={"w-6"} />
                         </Link>
@@ -27,7 +27,7 @@ const ConversationHeader = ({ selectedConversation }) => {
                             <h3>{selectedConversation.name}</h3>
                             {selectedConversation.is_group && (
                                 <p className={"text-xs text-gray-500"}>
-                                    {selectedConversation.users.length} Members
+                                    {selectedConversation.users.length} Member(s)
                                 </p>
                             )}
                         </div>

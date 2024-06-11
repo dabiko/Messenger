@@ -22,13 +22,10 @@ export default {
     plugins: [forms, require("daisyui")],
 
     daisyui: {
-        theme: true,
-        darkTheme: "dark",
-        base: true,
-        style: true,
-        utils: true,
-        prefix: "",
-        logs: true,
-        themeRoot: ":root",
+        themes: [
+            "dark",
+            "cupcake",
+            "halloween"
+        ],
     },
 };

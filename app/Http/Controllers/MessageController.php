@@ -25,7 +25,8 @@ class MessageController extends Controller
             ->where('receiver_id', Auth::id())
             ->latest()
             ->paginate(10);
-        //dd(MessageResource::collection($messages));
+
+        //dd($messages, MessageResource::collection($messages));
 
         return inertia('Dashboard',
             [

@@ -7,13 +7,14 @@ import ConversationHeader from "@/Components/App/ConversationHeader.jsx";
 import MessageItem from "@/Components/App/MessageItem.jsx";
 import MessageInput from "@/Components/App/MessageInput.jsx";
 
-function Dashboard({ messages }) {
-
+function Dashboard({ selectedConversation = null, messages = null  }) {
+// console.log('messages.....', messages);
+// console.log('selectedConversation.....', selectedConversation);
     const [localMessages, setLocalMessages] = useState([]);
-    const messagesCtrRef=  useRef(null);
+    const messagesContainerReference=  useRef(null);
 
     useEffect(() => {
-        setLocalMessages(messages)
+        setLocalMessages(messages ? messages.data.reverse() : []);
     }, [messages]);
 
     return (
@@ -32,7 +33,7 @@ function Dashboard({ messages }) {
             {messages && (
                 <>
                     <ConversationHeader selectedConversation={selectedConversation} />
-                    <div ref={messagesCtrRef} className={"flex-1 overflow-y-auto p-5"}>
+                    <div ref={messagesContainerReference} className={"flex-1 overflow-y-auto p-5"}>
                         {localMessages.length === 0 && (
                             <div className={"flex justify-center items-center h-full"}>
                                 <div className={"text-lg text-slate-200"}>
@@ -52,7 +53,7 @@ function Dashboard({ messages }) {
                             </div>
                         )}
                     </div>
-                    <MessageInput conversation={selectedConversation} />
+                    {/*<MessageInput conversation={selectedConversation} />*/}
                 </>
             )}
 
