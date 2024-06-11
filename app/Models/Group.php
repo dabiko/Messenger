@@ -72,7 +72,7 @@ class Group extends Model
         ];
     }
 
-    public static function updateGroupWithConversation($groupId, $message): Group
+    public static function updateGroupWithConversation($groupId, $message)
     {
         /** Create or update a group with received group id and message  */
         return self::updateOrCreate(

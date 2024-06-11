@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Broadcast;
 //    return (int) $user->id === (int) $id;
 //});
 
-Broadcast::channel('online', function (User $user) {
+Broadcast::channel('online', function ($user) {
     return $user ? new UserResource($user) : null;
 });
 
